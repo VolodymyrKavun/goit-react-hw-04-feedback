@@ -5,6 +5,7 @@ import FeedbackOptions from 'components/FeedbackOptions';
 import Section from 'components/Section';
 import Notification from 'components/Notification';
 
+// Масив значень, які передаємо, та робимо "map()" для отримання значень
 const options = ['Good', 'Neutral', 'Bad'];
 
 const App = () => {
@@ -12,9 +13,9 @@ const App = () => {
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
 
+  // Робимо "+ 1" на кнопку , яку клікнули
   const targetButtonClickChange = event => {
     const name = event.target.textContent.toLowerCase();
-    console.log('🚀 ~ name', name);
 
     switch (name) {
       case 'good':
@@ -31,8 +32,10 @@ const App = () => {
     }
   };
 
+  // Передаємо "Дітьми" значення
   const countTotalFeedback = good + neutral + bad;
 
+  // Формула прорахунку позитивних значень
   const positivePercentage = Math.round((good / countTotalFeedback) * 100);
 
   return (
